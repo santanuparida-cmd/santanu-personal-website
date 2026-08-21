@@ -13,10 +13,11 @@ function App() {
   const [achievements, setAchievements] = useState([]);
   const [teachingCourses, setTeachingCourses] = useState([]);
   const [menuOpen, setMenuOpen] = useState(false);
+  const API_BASE_URL = "https://santanu-personal-backend.onrender.com";
 
   useEffect(() => {
     // Profile
-    fetch("http://127.0.0.1:8000/api/profile/")
+    fetch(`${API_BASE_URL}/api/profile/`)
       .then((response) => response.json())
       .then((data) => {
         if (data.length > 0) {
@@ -28,7 +29,7 @@ function App() {
       });
 
     // Research Interests
-    fetch("http://127.0.0.1:8000/api/research-interests/")
+    fetch(`${API_BASE_URL}/api/profile/`)
       .then((response) => response.json())
       .then((data) => {
         setResearchInterests(data);
@@ -38,7 +39,7 @@ function App() {
       });
 
     // Research Projects
-    fetch("http://127.0.0.1:8000/api/research-projects/")
+    fetch(`${API_BASE_URL}/api/profile/`)
       .then((response) => response.json())
       .then((data) => {
         setResearchProjects(data);
@@ -48,7 +49,7 @@ function App() {
       });
 
     // Publications
-    fetch("http://127.0.0.1:8000/api/publications/")
+   fetch(`${API_BASE_URL}/api/profile/`)
       .then((response) => response.json())
       .then((data) => {
         setPublications(data);
@@ -58,7 +59,7 @@ function App() {
       });
 
     // Teaching Resources
-    fetch("http://127.0.0.1:8000/api/teaching-resources/")
+    fetch(`${API_BASE_URL}/api/profile/`)
       .then((response) => response.json())
       .then((data) => {
         setResources(data);
@@ -68,7 +69,7 @@ function App() {
       });
 
     // Gallery
-    fetch("http://127.0.0.1:8000/api/gallery/")
+    fetch(`${API_BASE_URL}/api/profile/`)
       .then((response) => response.json())
       .then((data) => {
         setGalleryItems(data);
@@ -78,7 +79,7 @@ function App() {
       });
 
     // CV
-    fetch("http://127.0.0.1:8000/api/cv/")
+    fetch(`${API_BASE_URL}/api/profile/`)
       .then((response) => response.json())
       .then((data) => {
         setCvDocuments(data);
@@ -88,7 +89,7 @@ function App() {
       });
 
     // Academic Links
-    fetch("http://127.0.0.1:8000/api/academic-links/")
+    fetch(`${API_BASE_URL}/api/profile/`)
       .then((response) => response.json())
       .then((data) => {
         setAcademicLinks(data);
@@ -98,7 +99,7 @@ function App() {
       });
   }, []);
     // Achievements
-fetch("http://127.0.0.1:8000/api/achievements/")
+fetch(`${API_BASE_URL}/api/profile/`)
   .then((response) => response.json())
   .then((data) => {
     setAchievements(data);
@@ -107,7 +108,7 @@ fetch("http://127.0.0.1:8000/api/achievements/")
     console.error("Error loading achievements:", error);
   });
   // Teaching Courses
-fetch("http://127.0.0.1:8000/api/teaching/")
+fetch(`${API_BASE_URL}/api/profile/`)
   .then((response) => response.json())
   .then((data) => {
     setTeachingCourses(data);
