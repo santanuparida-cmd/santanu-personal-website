@@ -14,11 +14,24 @@ from .models import (
     CVDocument,
 )
 
-
 class ProfileSerializer(serializers.ModelSerializer):
+    profile_photo = serializers.SerializerMethodField()
+
     class Meta:
         model = Profile
         fields = "__all__"
+
+    def get_profile_photo(self, obj):
+        if not obj.profile_photo:
+            return None
+
+        try:
+            request = self.context.get("request")
+            if request:
+                return request.build_absolute_uri(obj.profile_photo.url)
+            return obj.profile_photo.url
+        except Exception:
+            return None
 
 
 class ResearchInterestSerializer(serializers.ModelSerializer):
