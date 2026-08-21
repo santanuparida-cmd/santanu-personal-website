@@ -1,0 +1,149 @@
+[
+{
+  "model": "website.profile",
+  "pk": 1,
+  "fields": {
+    "name": "Dr. Santanu Kumar Parida",
+    "designation": "Assistant Professor of Physics",
+    "institution": "Government Women's College, Baripada",
+    "short_bio": "Assistant Professor of Physics with research interests in materials physics, semiconductor materials, perovskite solar cells and emerging functional materials for energy applications.",
+    "full_bio": "Dr. Santanu Kumar Parida is an Assistant Professor of Physics at Government Women’s College, Baripada, Odisha. His academic interests encompass materials physics, semiconductor materials, nanostructured materials and emerging functional materials for energy applications.\r\n\r\nHis research work focuses particularly on the synthesis, characterization and understanding of functional materials, with current interests in lead-free perovskite materials and their potential applications in photovoltaic devices. His research experience also includes studies of semiconductor materials, nanomechanical behaviour and surface phenomena.\r\n\r\nAlongside research, he is actively engaged in undergraduate teaching and the development of academic resources in Physics. His academic activities include research publications, student mentoring, institutional academic initiatives and the development of research-oriented teaching and learning resources.",
+    "profile_photo": "profile/image_Santanu.png",
+    "email": "santanuparida026@gmail.com",
+    "phone": "",
+    "address": "",
+    "google_scholar": "https://scholar.google.com/citations?user=s1i2tEsAAAAJ&hl=en",
+    "orcid": "",
+    "researchgate": "",
+    "linkedin": ""
+  }
+},
+{
+  "model": "website.researchinterest",
+  "pk": 1,
+  "fields": {
+    "title": "Lead-Free Perovskite Solar Cells",
+    "description": "Synthesis, characterization and stability enhancement of environmentally sustainable lead-free tin-based perovskite materials for photovoltaic applications.",
+    "display_order": 1
+  }
+},
+{
+  "model": "website.researchinterest",
+  "pk": 2,
+  "fields": {
+    "title": "Semiconductor Materials and Nanostructures",
+    "description": "Investigation of structural, optical, vibrational and electronic properties of semiconductor materials and nanostructures.",
+    "display_order": 2
+  }
+},
+{
+  "model": "website.researchinterest",
+  "pk": 3,
+  "fields": {
+    "title": "Functional Materials",
+    "description": "Study of functional materials for energy conversion, optoelectronic and emerging technological applications.",
+    "display_order": 3
+  }
+},
+{
+  "model": "website.researchproject",
+  "pk": 1,
+  "fields": {
+    "title": "Perovskite Solar Cell",
+    "description": "Sn based Perovskite Solar Cell",
+    "funding_agency": "",
+    "grant_amount": null,
+    "start_date": null,
+    "end_date": null,
+    "status": "ongoing",
+    "project_url": "",
+    "featured": true
+  }
+},
+{
+  "model": "website.publication",
+  "pk": 1,
+  "fields": {
+    "title": "Water vapor and alcohol vapor induced healing of the nanostructured KBr Surface",
+    "authors": "S. Parida, J. Lacasa, B. Eren",
+    "journal": "Journal of Physical Chemistry C",
+    "publication_type": "journal",
+    "year": 2022,
+    "volume": "26",
+    "issue": "",
+    "pages": "13433",
+    "doi": "",
+    "url": "",
+    "pdf": "publications/Water_Vapor_and_Alcohol_Vapor_Induced_Healing_of_the_Nanostructured_KBr_Surface.pdf",
+    "featured": true
+  }
+},
+{
+  "model": "website.teachingresource",
+  "pk": 1,
+  "fields": {
+    "title": "Semiconductor Physics Lecture Notes",
+    "category": "notes",
+    "course": "Physics",
+    "semester": "V",
+    "description": "",
+    "file": "resources/Observation_of_Local_Vibrational_Mode_in_N-doped_6H-SiC.pdf",
+    "external_url": "",
+    "uploaded_at": "2026-08-20T16:28:25.438Z"
+  }
+},
+{
+  "model": "website.achievement",
+  "pk": 1,
+  "fields": {
+    "title": "Research Award / Academic Achievement",
+    "description": "",
+    "year": 2026,
+    "image": "",
+    "featured": true
+  }
+},
+{
+  "model": "website.galleryitem",
+  "pk": 1,
+  "fields": {
+    "title": "test",
+    "caption": "test",
+    "image": "gallery/Logo_Government_Womens_College_Baripada.jpeg",
+    "event_date": null,
+    "category": "",
+    "uploaded_at": "2026-08-20T16:41:15.115Z"
+  }
+},
+{
+  "model": "website.academiclink",
+  "pk": 1,
+  "fields": {
+    "name": "Google Scholar",
+    "url": "https://scholar.google.com/citations?user=s1i2tEsAAAAJ&hl=en",
+    "display_order": 1
+  }
+},
+{
+  "model": "website.teachingcourse",
+  "pk": 1,
+  "fields": {
+    "title": "Solid State Physics",
+    "level": "ug",
+    "semester": "V",
+    "description": "",
+    "display_order": 1,
+    "active": true
+  }
+},
+{
+  "model": "website.cvdocument",
+  "pk": 1,
+  "fields": {
+    "title": "Curriculum Vitae",
+    "file": "cv/Updated_CV_Santanu_Parida_.pdf",
+    "uploaded_at": "2026-08-20T18:24:45.092Z",
+    "active": true
+  }
+}
+]
