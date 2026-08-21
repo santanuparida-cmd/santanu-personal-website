@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary_storage.storage import RawMediaCloudinaryStorage
 
 
 class Profile(models.Model):
@@ -49,6 +50,7 @@ class ResearchProject(models.Model):
     description = models.TextField()
 
     funding_agency = models.CharField(max_length=250, blank=True)
+
     grant_amount = models.DecimalField(
         max_digits=12,
         decimal_places=2,
@@ -101,8 +103,10 @@ class Publication(models.Model):
     doi = models.CharField(max_length=200, blank=True)
     url = models.URLField(blank=True)
 
+    # PDFs/documents are stored as raw files in Cloudinary
     pdf = models.FileField(
         upload_to="publications/",
+        storage=RawMediaCloudinaryStorage(),
         blank=True,
         null=True
     )
@@ -138,8 +142,10 @@ class TeachingResource(models.Model):
 
     description = models.TextField(blank=True)
 
+    # PDFs/documents are stored as raw files in Cloudinary
     file = models.FileField(
         upload_to="resources/",
+        storage=RawMediaCloudinaryStorage(),
         blank=True,
         null=True
     )
@@ -223,6 +229,7 @@ class AcademicLink(models.Model):
     def __str__(self):
         return self.name
 
+
 class TeachingCourse(models.Model):
     LEVEL_CHOICES = [
         ("ug", "Undergraduate"),
@@ -260,15 +267,18 @@ class TeachingCourse(models.Model):
 
     def __str__(self):
         return self.title
-        
+
+
 class CVDocument(models.Model):
     title = models.CharField(
         max_length=200,
         default="Curriculum Vitae"
     )
 
+    # CV/PDF is stored as a raw file in Cloudinary
     file = models.FileField(
-        upload_to="cv/"
+        upload_to="cv/",
+        storage=RawMediaCloudinaryStorage()
     )
 
     uploaded_at = models.DateTimeField(auto_now_add=True)
