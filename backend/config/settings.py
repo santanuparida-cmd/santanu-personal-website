@@ -45,9 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     
+    'django.contrib.staticfiles',
     'cloudinary_storage',
     'cloudinary',
-    'django.contrib.staticfiles',
 
     "rest_framework",
     "corsheaders",
@@ -134,7 +134,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-
 STORAGES = {
     "default": {
         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
