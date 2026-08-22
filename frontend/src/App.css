@@ -247,14 +247,14 @@ img {
   display: grid;
   grid-template-columns: minmax(0, 1.45fr) minmax(290px, 0.75fr);
   align-items: center;
-  gap: 64px;
+  gap: 56px;
 
-  min-height: 620px;
+  min-height: 560px;
 
   padding:
-    78px
+    64px
     max(24px, calc((100vw - var(--max-width)) / 2))
-    84px;
+    68px;
 
   background:
     radial-gradient(
@@ -272,47 +272,15 @@ img {
   border-bottom: 1px solid var(--line);
 }
 
-.hero::after {
-  content: "";
-
-  position: absolute;
-  right: -130px;
-  bottom: -170px;
-
-  width: 420px;
-  height: 420px;
-
-  border: 1px solid rgba(36, 90, 146, 0.08);
-  border-radius: 50%;
-}
-
-.hero-text {
-  position: relative;
-  z-index: 1;
-}
-
-.eyebrow,
-.section-label {
-  margin: 0 0 14px;
-
-  color: var(--gold);
-
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-
-  text-transform: uppercase;
-}
-
 .hero h1 {
-  max-width: 760px;
+  max-width: 720px;
   margin: 0;
 
   color: var(--navy);
 
-  font-size: clamp(2.8rem, 4.6vw, 4.4rem);
-  line-height: 1.02;
-  letter-spacing: -0.05em;
+  font-size: clamp(2.6rem, 4.1vw, 4rem);
+  line-height: 1.04;
+  letter-spacing: -0.045em;
 }
 
 .hero h2 {
@@ -423,7 +391,7 @@ img {
   position: relative;
   z-index: 1;
 
-  width: min(100%, 340px);
+  width: min(100%, 320px);
 
   margin-left: auto;
 }
@@ -432,12 +400,12 @@ img {
   content: "";
 
   position: absolute;
-  inset: -14px;
+  inset: -10px;
 
-  border: 1px solid rgba(182, 138, 50, 0.45);
-  border-radius: 30px;
+  border: 1px solid rgba(182, 138, 50, 0.28);
+  border-radius: 26px;
 
-  transform: rotate(3deg);
+  transform: rotate(1.5deg);
 }
 
 .hero-photo {
