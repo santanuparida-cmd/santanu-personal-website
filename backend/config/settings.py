@@ -149,6 +149,8 @@ STORAGES = {
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     "https://santanuparida.netlify.app",
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
 ]
 MEDIA_URL = "/media/"
 
