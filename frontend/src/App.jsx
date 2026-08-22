@@ -29,7 +29,7 @@ function App() {
       });
 
     // Research Interests
-    fetch(`${API_BASE_URL}/api/profile/`)
+    fetch(`${API_BASE_URL}/api/research-interests/`)
       .then((response) => response.json())
       .then((data) => {
         setResearchInterests(data);
@@ -39,7 +39,7 @@ function App() {
       });
 
     // Research Projects
-    fetch(`${API_BASE_URL}/api/profile/`)
+    fetch(`${API_BASE_URL}/api/research-projects/`)
       .then((response) => response.json())
       .then((data) => {
         setResearchProjects(data);
@@ -49,19 +49,20 @@ function App() {
       });
 
     // Publications
-   fetch(`${API_BASE_URL}/api/profile/`)
+    fetch(`${API_BASE_URL}/api/publications/`)
       .then((response) => response.json())
       .then((data) => {
         setPublications(data);
       })
-      .catch((error) => {
-        console.error("Error loading publications:", error);
-      });
-
+  .catch((error) => {
+    console.error("Error loading publications:", error);
+  });
     // Teaching Resources
-    fetch(`${API_BASE_URL}/api/profile/`)
+    fetch(`${API_BASE_URL}/api/teaching-resources/`)
       .then((response) => response.json())
       .then((data) => {
+        
+
         setResources(data);
       })
       .catch((error) => {
@@ -69,7 +70,7 @@ function App() {
       });
 
     // Gallery
-    fetch(`${API_BASE_URL}/api/profile/`)
+    fetch(`${API_BASE_URL}/api/gallery/`)
       .then((response) => response.json())
       .then((data) => {
         setGalleryItems(data);
@@ -79,45 +80,46 @@ function App() {
       });
 
     // CV
-fetch(`${API_BASE_URL}/api/cv/`)
-  .then((response) => response.json())
-  .then((data) => {
-    setCvDocuments(data);
-  })
-  .catch((error) => {
-    console.error("Error loading CV:", error);
-  });
+    fetch(`${API_BASE_URL}/api/cv/`)
+      .then((response) => response.json())
+      .then((data) => {
+        setCvDocuments(data);
+      })
+      .catch((error) => {
+        console.error("Error loading CV:", error);
+      });
 
-// Academic Links
-fetch(`${API_BASE_URL}/api/academic-links/`)
-  .then((response) => response.json())
-  .then((data) => {
-    setAcademicLinks(data);
-  })
-  .catch((error) => {
-    console.error("Error loading academic links:", error);
-  });
-  // Achievements
-fetch(`${API_BASE_URL}/api/achievements/`)
-  .then((response) => response.json())
-  .then((data) => {
-    setAchievements(data);
-  })
-  .catch((error) => {
-    console.error("Error loading achievements:", error);
-  });
+    // Academic Links
+    fetch(`${API_BASE_URL}/api/academic-links/`)
+      .then((response) => response.json())
+      .then((data) => {
+        setAcademicLinks(data);
+      })
+      .catch((error) => {
+        console.error("Error loading academic links:", error);
+      });
 
-// Teaching Courses
-fetch(`${API_BASE_URL}/api/teaching/`)
-  .then((response) => response.json())
-  .then((data) => {
-    setTeachingCourses(data);
-  })
-  .catch((error) => {
-    console.error("Error loading teaching courses:", error);
-  });
+    // Achievements
+    fetch(`${API_BASE_URL}/api/achievements/`)
+      .then((response) => response.json())
+      .then((data) => {
+        setAchievements(data);
+      })
+      .catch((error) => {
+        console.error("Error loading achievements:", error);
+      });
 
-}, []);
+    // Teaching Courses
+    fetch(`${API_BASE_URL}/api/teaching/`)
+      .then((response) => response.json())
+      .then((data) => {
+        setTeachingCourses(data);
+      })
+      .catch((error) => {
+        console.error("Error loading teaching courses:", error);
+      });
+
+  }, []);
   if (!profile) {
     return <div className="loading">Loading...</div>;
   }
