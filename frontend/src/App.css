@@ -1400,67 +1400,99 @@ img {
 
 .contact-section {
   padding:
-    92px
-    max(24px, calc((100vw - var(--max-width)) / 2));
+    88px
+    max(24px, calc((100vw - var(--max-width)) / 2))
+    76px;
 
-  background: var(--navy);
+  background:
+    linear-gradient(
+      135deg,
+      #10233f 0%,
+      #132b4b 100%
+    );
+
   color: #ffffff;
 }
 
 .contact-section .section-label {
+  margin-bottom: 10px;
+
   color: #d7b96a;
+
+  text-align: center;
 }
 
 .contact-section .section-title {
+  margin: 0 auto;
+
   color: #ffffff;
+
+  text-align: center;
 }
 
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 70px;
+  gap: 80px;
 
-  margin-top: 40px;
+  max-width: 980px;
+
+  margin: 48px auto 0;
+}
+
+.contact-details {
+  padding-right: 30px;
+
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .contact-details h3 {
-  margin: 0 0 12px;
+  margin: 0 0 14px;
+
+  color: #ffffff;
 
   font-size: 1.35rem;
+  font-weight: 750;
 }
 
 .contact-details p {
-  margin: 6px 0;
+  margin: 7px 0;
 
-  color: #ccd6e4;
+  color: #cbd5e1;
 
-  line-height: 1.65;
+  font-size: 0.98rem;
+  line-height: 1.7;
 }
 
 .contact-links {
   display: grid;
-  gap: 20px;
+  gap: 26px;
 }
 
 .contact-item {
   display: grid;
-  gap: 5px;
+  gap: 7px;
 }
 
 .contact-item > span {
-  color: #9db0c8;
+  color: #9fb1c8;
 
   font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.10em;
 
   text-transform: uppercase;
 }
 
 .contact-item a {
+  width: fit-content;
+
   color: #ffffff;
 
-  font-weight: 650;
+  font-size: 0.97rem;
+  font-weight: 700;
+
+  transition: 0.2s ease;
 }
 
 .contact-item a:hover {
@@ -1473,21 +1505,27 @@ img {
   gap: 10px 18px;
 }
 
+.contact-academic-links a {
+  padding-bottom: 2px;
+
+  border-bottom: 1px solid rgba(225, 196, 117, 0.35);
+}
+
 /* =========================================================
    FOOTER
    ========================================================= */
 
 footer {
-  padding: 20px 24px;
+  padding: 22px 24px;
 
-  border-top: 1px solid #233c5c;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
 
   background: #0b1b31;
-  color: #a9b8ca;
+  color: #9fb0c4;
 
   text-align: center;
 
-  font-size: 0.82rem;
+  font-size: 0.80rem;
 }
 
 footer p {
@@ -1680,5 +1718,71 @@ footer p {
 
   .hero-photo-wrapper {
     width: min(82vw, 300px);
+  }
+}
+  .contact-grid {
+  grid-template-columns: 1fr;
+
+  max-width: 520px;
+}
+
+.contact-details {
+  padding: 28px;
+
+  border-right: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.contact-links {
+  padding: 28px;
+}
+
+.contact-section {
+  padding-top: 68px;
+  padding-bottom: 60px;
+}
+/* =========================================================
+   CONTACT DESKTOP OVERRIDE
+   Keeps contact card two-column on desktop
+   ========================================================= */
+
+@media (min-width: 681px) {
+  .contact-section {
+    padding:
+      82px
+      max(24px, calc((100vw - var(--max-width)) / 2));
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 0;
+
+    max-width: 900px;
+    margin: 44px auto 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    overflow: hidden;
+  }
+
+  .contact-details {
+    padding: 34px 38px;
+
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 0;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 24px;
+
+    padding: 34px 38px;
   }
 }
