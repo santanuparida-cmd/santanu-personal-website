@@ -283,33 +283,71 @@ function App() {
 
         {/* ABOUT */}
 <section
-  className="section"
+  className="section about-section"
   id="about"
 >
-  <p className="section-label">
-    About
-  </p>
+  <div className="about-grid">
 
-  <h2 className="section-title">
-    Academic Profile
-  </h2>
+    <div className="about-main">
+      <p className="section-label">
+        About
+      </p>
 
-  {profile.full_bio ? (
-    <div className="about-content">
-      {profile.full_bio
-        .split("\n")
-        .filter((paragraph) => paragraph.trim() !== "")
-        .map((paragraph, index) => (
-          <p key={index}>
-            {paragraph}
-          </p>
-        ))}
+      <h2 className="section-title">
+        Academic Profile
+      </h2>
+
+      {profile.full_bio ? (
+        <div className="about-content">
+          {profile.full_bio
+            .split("\n")
+            .filter((paragraph) => paragraph.trim() !== "")
+            .map((paragraph, index) => (
+              <p key={index}>
+                {paragraph}
+              </p>
+            ))}
+        </div>
+      ) : (
+        <p className="section-text">
+          Academic profile information will be updated here.
+        </p>
+      )}
     </div>
-  ) : (
-    <p className="section-text">
-      Academic profile information will be updated here.
-    </p>
-  )}
+
+    <aside className="about-focus">
+      <p className="about-focus-label">
+        Academic Focus
+      </p>
+
+      <h3>
+        Research & Teaching
+      </h3>
+
+      <div className="focus-list">
+        <div className="focus-item">
+          <span>01</span>
+          <p>Materials Physics</p>
+        </div>
+
+        <div className="focus-item">
+          <span>02</span>
+          <p>Semiconductor Materials</p>
+        </div>
+
+        <div className="focus-item">
+          <span>03</span>
+          <p>Lead-Free Perovskites</p>
+        </div>
+
+        <div className="focus-item">
+          <span>04</span>
+          <p>Energy Materials</p>
+        </div>
+      </div>
+    </aside>
+
+  </div>
 </section>
 
         {/* RESEARCH INTERESTS */}

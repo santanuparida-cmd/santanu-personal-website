@@ -502,6 +502,175 @@ img {
 }
 
 /* =========================================================
+   ABOUT / ACADEMIC PROFILE
+   ========================================================= */
+
+.about-section {
+  background: #ffffff;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.75fr);
+  gap: 70px;
+  align-items: start;
+}
+
+.about-main .section-title {
+  margin-bottom: 0;
+}
+
+.about-content {
+  max-width: 760px;
+  margin-top: 30px;
+
+  color: #53647a;
+
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.about-content p {
+  margin: 0 0 20px;
+
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.about-focus {
+  position: relative;
+
+  padding: 30px;
+
+  border: 1px solid var(--line);
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f8fafc,
+      #eef4fa
+    );
+
+  box-shadow: 0 12px 32px rgba(15, 35, 63, 0.06);
+}
+
+.about-focus::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+
+  border-radius: 18px 18px 0 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--blue),
+      var(--gold)
+    );
+}
+
+.about-focus-label {
+  margin: 0 0 10px;
+
+  color: var(--gold);
+
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+}
+
+.about-focus h3 {
+  margin: 0 0 24px;
+
+  color: var(--navy);
+
+  font-size: 1.35rem;
+}
+
+.focus-list {
+  display: grid;
+  gap: 0;
+}
+
+.focus-item {
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px 0;
+
+  border-top: 1px solid rgba(16, 35, 63, 0.09);
+}
+
+.focus-item span {
+  color: var(--gold);
+
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.focus-item p {
+  margin: 0;
+
+  color: var(--navy);
+
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+.about-focus {
+  position: relative;
+
+  padding: 30px;
+
+  border: 1px solid var(--line);
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f8fafc,
+      #eef4fa
+    );
+
+  box-shadow: 0 12px 32px rgba(15, 35, 63, 0.06);
+
+  margin: 0 auto;
+  width: 100%;
+  max-width: 360px;
+}
+
+.about-focus-label {
+  margin: 0 0 10px;
+
+  color: var(--gold);
+
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.about-focus h3 {
+  margin: 0 0 24px;
+
+  color: var(--navy);
+
+  font-size: 1.35rem;
+
+  text-align: center;
+}
+/* =========================================================
    GENERAL CARDS
    ========================================================= */
 
@@ -1158,6 +1327,15 @@ footer p {
   .gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+
+  .about-grid {
+  grid-template-columns: 1fr;
+  gap: 42px;
+}
+
+.about-focus {
+  max-width: 620px;
 }
 
 /* =========================================================
