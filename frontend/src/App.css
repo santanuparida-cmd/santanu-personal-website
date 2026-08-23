@@ -914,6 +914,55 @@ img {
    TEACHING
    ========================================================= */
 
+#teaching .cards {
+  margin-top: 40px;
+}
+
+#teaching .card {
+  min-height: 190px;
+
+  padding: 26px;
+
+  border: 1px solid var(--line);
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #fbfcfe 100%
+    );
+
+  box-shadow: 0 8px 24px rgba(15, 35, 63, 0.04);
+}
+
+#teaching .card::before {
+  background:
+    linear-gradient(
+      180deg,
+      var(--gold),
+      var(--blue)
+    );
+}
+
+#teaching .card h3 {
+  margin: 0 0 12px;
+
+  color: var(--navy);
+
+  font-size: 1.12rem;
+  line-height: 1.4;
+}
+
+#teaching .card p {
+  margin: 8px 0;
+
+  color: #617187;
+
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
 .teaching-meta {
   display: flex;
   flex-wrap: wrap;
@@ -925,13 +974,16 @@ img {
 .teaching-level,
 .teaching-semester {
   display: inline-flex;
+  align-items: center;
 
-  padding: 5px 9px;
+  padding: 5px 10px;
 
   border-radius: 999px;
 
-  font-size: 0.71rem;
+  font-size: 0.70rem;
   font-weight: 800;
+
+  letter-spacing: 0.02em;
 }
 
 .teaching-level {
@@ -943,7 +995,6 @@ img {
   background: var(--gold-soft);
   color: #805e1c;
 }
-
 /* =========================================================
    RESOURCES
    ========================================================= */
