@@ -1786,3 +1786,40 @@ footer p {
     padding: 34px 38px;
   }
 }
+/* =========================================================
+   FINAL DESKTOP POLISH
+   ========================================================= */
+
+@media (min-width: 681px) {
+
+  /* About: improve long-form readability */
+.about-content p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+.about-content {
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+  /* Publications: scholarly citation alignment */
+  .publication-content {
+    text-align: left;
+  }
+
+  .publication-topline {
+    justify-content: flex-start;
+  }
+
+  .publication-item h3,
+  .publication-authors,
+  .publication-journal {
+    text-align: left;
+  }
+
+  .publication-links {
+    justify-content: flex-start;
+  }
+}
