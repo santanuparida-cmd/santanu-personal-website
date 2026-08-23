@@ -1276,36 +1276,61 @@ img {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
+  gap: 24px;
 
-  margin-top: 38px;
+  margin-top: 40px;
 }
 
 .gallery-card {
+  position: relative;
+
   overflow: hidden;
 
   border: 1px solid var(--line);
-  border-radius: var(--radius);
+  border-radius: 16px;
 
   background: #ffffff;
 
   box-shadow: 0 8px 24px rgba(15, 35, 63, 0.04);
 
-  transition: 0.22s ease;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
 }
 
 .gallery-card:hover {
   transform: translateY(-4px);
 
+  border-color: #c9d5e1;
+
   box-shadow: var(--shadow-hover);
 }
 
 .gallery-image-wrapper {
+  position: relative;
+
   aspect-ratio: 4 / 3;
 
   overflow: hidden;
 
   background: #e8edf3;
+}
+
+.gallery-image-wrapper::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 65%,
+      rgba(16, 35, 63, 0.08)
+    );
+
+  pointer-events: none;
 }
 
 .gallery-image {
@@ -1314,23 +1339,24 @@ img {
 
   object-fit: cover;
 
-  transition: transform 0.35s ease;
+  transition: transform 0.4s ease;
 }
 
 .gallery-card:hover .gallery-image {
-  transform: scale(1.035);
+  transform: scale(1.045);
 }
 
 .gallery-content {
-  padding: 20px;
+  padding: 22px;
 }
 
 .gallery-content h3 {
-  margin: 0 0 8px;
+  margin: 0 0 9px;
 
   color: var(--navy);
 
-  font-size: 1.03rem;
+  font-size: 1.06rem;
+  line-height: 1.4;
 }
 
 .gallery-content p {
@@ -1338,7 +1364,8 @@ img {
 
   color: #617187;
 
-  line-height: 1.6;
+  font-size: 0.93rem;
+  line-height: 1.65;
 }
 
 .gallery-meta {
@@ -1346,11 +1373,25 @@ img {
   flex-wrap: wrap;
   gap: 8px 12px;
 
-  margin-top: 12px;
+  margin-top: 14px;
 
   color: #7a8798;
 
-  font-size: 0.78rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.gallery-meta span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.gallery-meta span + span::before {
+  content: "•";
+
+  margin-right: 10px;
+
+  color: var(--gold);
 }
 
 /* =========================================================
