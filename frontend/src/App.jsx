@@ -73,8 +73,8 @@ function App() {
     fetch(`${API_BASE_URL}/api/gallery/`)
       .then((response) => response.json())
       .then((data) => {
-        setGalleryItems(data);
-      })
+      setGalleryItems(Array.isArray(data) ? data : []);
+          })
       .catch((error) => {
         console.error("Error loading gallery:", error);
       });
@@ -166,12 +166,14 @@ function App() {
           Research Interests
         </a>
 
-        <a
-          href="#projects"
-          onClick={() => setMenuOpen(false)}
-        >
-          Projects
-        </a>
+        {researchProjects.length > 0 && (
+  <a
+    href="#projects"
+    onClick={() => setMenuOpen(false)}
+  >
+    Projects
+  </a>
+)}
       </div>
     </div>
 
@@ -191,10 +193,18 @@ function App() {
       Achievements
     </a>
 
-    <a href="#gallery" onClick={() => setMenuOpen(false)}>
-      Gallery
-    </a>
+    {galleryItems.length > 0 && (
+  <a
+    href="#gallery"
+    onClick={() => setMenuOpen(false)}
+  >
+    Gallery
+  </a>
+)}
 
+<a href="#contact" onClick={() => setMenuOpen(false)}>
+  Contact
+</a>
     <a href="#contact" onClick={() => setMenuOpen(false)}>
       Contact
     </a>
@@ -376,79 +386,74 @@ function App() {
           </div>
         </section>
 
-        {/* RESEARCH PROJECTS */}
-        <section
-          className="section"
-          id="projects"
+{/* RESEARCH PROJECTS */}
+{researchProjects.length > 0 && (
+  <section
+    className="section"
+    id="projects"
+  >
+    <p className="section-label">
+      Research
+    </p>
+
+    <h2 className="section-title">
+      Research Projects
+    </h2>
+
+    <div className="cards">
+      {researchProjects.map((project) => (
+        <div
+          className="card"
+          key={project.id}
         >
-          <p className="section-label">
-            Research
-          </p>
+          <h3>{project.title}</h3>
 
-          <h2 className="section-title">
-            Research Projects
-          </h2>
+          <p>{project.description}</p>
 
-          {researchProjects.length > 0 ? (
-            <div className="cards">
-              {researchProjects.map((project) => (
-                <div
-                  className="card"
-                  key={project.id}
-                >
-                  <h3>{project.title}</h3>
-
-                  <p>{project.description}</p>
-
-                  {project.funding_agency && (
-                    <p>
-                      <strong>
-                        Funding Agency:
-                      </strong>{" "}
-                      {project.funding_agency}
-                    </p>
-                  )}
-
-                  {project.grant_amount && (
-                    <p>
-                      <strong>
-                        Grant Amount:
-                      </strong>{" "}
-                      ₹
-                      {Number(
-                        project.grant_amount
-                      ).toLocaleString("en-IN")}
-                    </p>
-                  )}
-
-                  <p>
-                    <strong>Status:</strong>{" "}
-                    {project.status === "ongoing"
-                      ? "Ongoing"
-                      : "Completed"}
-                  </p>
-
-                  {project.project_url && (
-                    <p>
-                      <a
-                        href={project.project_url}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        Project Details →
-                      </a>
-                    </p>
-                  )}
-                </div>
-              ))}
-            </div>
-          ) : (
-            <p className="section-text">
-              Research project information will
-              be updated here.
+          {project.funding_agency && (
+            <p>
+              <strong>
+                Funding Agency:
+              </strong>{" "}
+              {project.funding_agency}
             </p>
           )}
-        </section>
+
+          {project.grant_amount && (
+            <p>
+              <strong>
+                Grant Amount:
+              </strong>{" "}
+              ₹
+              {Number(
+                project.grant_amount
+              ).toLocaleString("en-IN")}
+            </p>
+          )}
+
+          <p>
+            <strong>Status:</strong>{" "}
+            {project.status === "ongoing"
+              ? "Ongoing"
+              : "Completed"}
+          </p>
+
+          {project.project_url && (
+            <p>
+              <a
+                href={project.project_url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Project Details →
+              </a>
+            </p>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+)}
 
         {/* PUBLICATIONS */}
         <section
@@ -783,60 +788,56 @@ function App() {
     </p>
   )}
 </section>
-        {/* GALLERY */}
-        <section
-          className="section"
-          id="gallery"
+  
+{/* GALLERY */}
+{galleryItems.length > 0 && (
+  <section
+    className="section"
+    id="gallery"
+  >
+    <p className="section-label">
+      Gallery
+    </p>
+    <h2 className="section-title">
+      Academic & Professional Gallery
+    </h2>
+
+    <div className="gallery-grid">
+      {galleryItems.map((item) => (
+        <article
+          className="gallery-card"
+          key={item.id}
         >
-          <p className="section-label">
-            Gallery
-          </p>
+          <div className="gallery-image-wrapper">
+            <img
+              src={item.image}
+              alt={item.title}
+              className="gallery-image"
+            />
+          </div>
 
-          <h2 className="section-title">
-            Academic & Professional Gallery
-          </h2>
+          <div className="gallery-content">
+            <h3>{item.title}</h3>
 
-          {galleryItems.length > 0 ? (
-            <div className="gallery-grid">
-              {galleryItems.map((item) => (
-                <article
-                  className="gallery-card"
-                  key={item.id}
-                >
-                  <div className="gallery-image-wrapper">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="gallery-image"
-                    />
-                  </div>
+            {item.caption && (
+              <p>{item.caption}</p>
+            )}
 
-                  <div className="gallery-content">
-                    <h3>{item.title}</h3>
+            <div className="gallery-meta">
+              {item.category && (
+                <span>{item.category}</span>
+              )}
 
-                    {item.caption && (
-                      <p>{item.caption}</p>
-                    )}
-
-                    <div className="gallery-meta">
-                      {item.category && (
-                        <span>{item.category}</span>
-                      )}
-
-                      {item.event_date && (
-                        <span>{item.event_date}</span>
-                      )}
-                    </div>
-                  </div>
-                </article>
-              ))}
+              {item.event_date && (
+                <span>{item.event_date}</span>
+              )}
             </div>
-          ) : (
-            <p className="section-text">
-              Gallery photographs will be added here.
-            </p>
-          )}
-        </section>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+)}
 
         {/* CONTACT */}
 <section className="contact-section" id="contact">
@@ -910,5 +911,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
