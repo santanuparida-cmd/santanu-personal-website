@@ -205,9 +205,7 @@ function App() {
 <a href="#contact" onClick={() => setMenuOpen(false)}>
   Contact
 </a>
-    <a href="#contact" onClick={() => setMenuOpen(false)}>
-      Contact
-    </a>
+
   </nav>
 </header>
 
