@@ -249,18 +249,7 @@ img {
 
   padding: 64px 7% 68px;
 
-  background:
-    radial-gradient(
-      circle at 85% 22%,
-      rgba(182, 138, 50, 0.12),
-      transparent 24%
-    ),
-    linear-gradient(
-      135deg,
-      #f8fafc 0%,
-      #eef4fa 52%,
-      #f9fbfd 100%
-    );
+background: #ffffff;
 
   border-bottom: 1px solid var(--line);
 }
@@ -315,12 +304,12 @@ img {
   max-width: 720px;
   margin: 26px 0 0;
 
-  color: var(--body-blue-strong);
+  color: #263238;
 
   font-size: 1.02rem;
   line-height: 1.78;
 
-  text-align: left;
+  text-align: justify;
 }
 
 .hero-buttons {
