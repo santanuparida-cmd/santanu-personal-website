@@ -13,6 +13,7 @@ function App() {
   const [achievements, setAchievements] = useState([]);
   const [teachingCourses, setTeachingCourses] = useState([]);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
   const API_BASE_URL = "https://santanu-personal-backend.onrender.com";
 
   useEffect(() => {
@@ -118,8 +119,47 @@ function App() {
       .catch((error) => {
         console.error("Error loading teaching courses:", error);
       });
-
   }, []);
+
+  useEffect(() => {
+    const sectionIds = [
+      "home",
+      "about",
+      "research-interests",
+      "projects",
+      "publications",
+      "teaching",
+      "resources",
+      "achievements",
+      "gallery",
+      "contact",
+    ];
+  
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+  
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "-25% 0px -65% 0px",
+        threshold: 0,
+      }
+    );
+  
+    sections.forEach((section) => observer.observe(section));
+  
+      return () => {
+    sections.forEach((section) => observer.unobserve(section));
+  };
+}, [profile, researchProjects.length, galleryItems.length]);
   if (!profile) {
     return <div className="loading">Loading...</div>;
   }
@@ -145,30 +185,55 @@ function App() {
   </button>
 
   <nav className={menuOpen ? "nav-menu nav-menu-open" : "nav-menu"}>
-    <a href="#home" onClick={() => setMenuOpen(false)}>
-      Home
-    </a>
+    <a
+  href="#home"
+  className={activeSection === "home" ? "nav-active" : ""}
+  onClick={() => setMenuOpen(false)}
+>
+  Home
+</a>
 
-    <a href="#about" onClick={() => setMenuOpen(false)}>
-      About
-    </a>
+    <a
+  href="#about"
+  className={activeSection === "about" ? "nav-active" : ""}
+  onClick={() => setMenuOpen(false)}
+>
+  About
+</a>
 
     <div className="nav-dropdown">
-      <button className="nav-dropdown-button">
-        Research
-      </button>
+      <button
+  className={`nav-dropdown-button ${
+    activeSection === "research-interests" ||
+    activeSection === "projects"
+      ? "nav-active"
+      : ""
+  }`}
+>
+  Research
+</button>
 
       <div className="nav-dropdown-menu">
         <a
-          href="#research-interests"
-          onClick={() => setMenuOpen(false)}
-        >
-          Research Interests
-        </a>
+  href="#research-interests"
+  className={
+    activeSection === "research-interests"
+      ? "nav-active"
+      : ""
+  }
+  onClick={() => setMenuOpen(false)}
+>
+  Research Interests
+</a>
 
         {researchProjects.length > 0 && (
   <a
     href="#projects"
+    className={
+      activeSection === "projects"
+        ? "nav-active"
+        : ""
+    }
     onClick={() => setMenuOpen(false)}
   >
     Projects
@@ -177,35 +242,78 @@ function App() {
       </div>
     </div>
 
-    <a href="#publications" onClick={() => setMenuOpen(false)}>
-      Publications
-    </a>
+    <a
+  href="#publications"
+  className={
+    activeSection === "publications"
+      ? "nav-active"
+      : ""
+  }
+  onClick={() => setMenuOpen(false)}
+>
+  Publications
+</a>
+    <a
+  href="#teaching"
+  className={
+    activeSection === "teaching"
+      ? "nav-active"
+      : ""
+  }
+  onClick={() => setMenuOpen(false)}
+>
+  Teaching
+</a>
 
-    <a href="#teaching" onClick={() => setMenuOpen(false)}>
-      Teaching
-    </a>
+    <a
+  href="#resources"
+  className={
+    activeSection === "resources"
+      ? "nav-active"
+      : ""
+  }
+  onClick={() => setMenuOpen(false)}
+>
+  Resources
+</a>
 
-    <a href="#resources" onClick={() => setMenuOpen(false)}>
-      Resources
-    </a>
-
-    <a href="#achievements" onClick={() => setMenuOpen(false)}>
-      Achievements
-    </a>
+   <a
+  href="#achievements"
+  className={
+    activeSection === "achievements"
+      ? "nav-active"
+      : ""
+  }
+  onClick={() => setMenuOpen(false)}
+>
+  Achievements
+</a>
 
     {galleryItems.length > 0 && (
   <a
     href="#gallery"
+    className={
+      activeSection === "gallery"
+        ? "nav-active"
+        : ""
+    }
     onClick={() => setMenuOpen(false)}
   >
     Gallery
   </a>
 )}
 
-<a href="#contact" onClick={() => setMenuOpen(false)}>
+<a
+  href="#contact"
+  className={
+    activeSection === "contact"
+      ? "nav-active"
+      : ""
+  }
+  onClick={() => setMenuOpen(false)}
+>
   Contact
 </a>
-
   </nav>
 </header>
 
@@ -322,38 +430,6 @@ function App() {
         </p>
       )}
     </div>
-
-    <aside className="about-focus">
-      <p className="about-focus-label">
-        Academic Focus
-      </p>
-
-      <h3>
-        Research & Teaching
-      </h3>
-
-      <div className="focus-list">
-        <div className="focus-item">
-          <span>01</span>
-          <p>Materials Physics</p>
-        </div>
-
-        <div className="focus-item">
-          <span>02</span>
-          <p>Semiconductor Materials</p>
-        </div>
-
-        <div className="focus-item">
-          <span>03</span>
-          <p>Lead-Free Perovskites</p>
-        </div>
-
-        <div className="focus-item">
-          <span>04</span>
-          <p>Energy Materials</p>
-        </div>
-      </div>
-    </aside>
 
   </div>
 </section>

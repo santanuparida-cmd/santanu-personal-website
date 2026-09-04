@@ -78,9 +78,8 @@ img {
 
 .site {
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
-
 /* =========================================================
    NAVIGATION
    ========================================================= */
@@ -232,7 +231,34 @@ img {
 
   background: var(--navy);
 }
+.nav-menu > a,
+.nav-dropdown-button {
+  position: relative;
+}
 
+.nav-menu > a.nav-active,
+.nav-dropdown-button.nav-active {
+  color: var(--navy);
+}
+
+.nav-menu > a.nav-active::after,
+.nav-dropdown-button.nav-active::after {
+  content: "";
+
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 1px;
+
+  height: 3px;
+
+  border-radius: 999px;
+
+  background: #c9a227;
+}
+section {
+  scroll-margin-top: 80px;
+}
 /* =========================================================
    HERO
    ========================================================= */
