@@ -589,7 +589,7 @@ function App() {
           )}
         </section>
 
-        {/* TEACHING */}
+{/* TEACHING */}
 <section
   className="section"
   id="teaching"
@@ -603,35 +603,40 @@ function App() {
   </h2>
 
   {teachingCourses.length > 0 ? (
-    <div className="cards">
-      {teachingCourses.map((course) => (
-        <div
-          className="card"
-          key={course.id}
-        >
-          <div className="teaching-meta">
-            <span className="teaching-level">
-              {course.level === "ug"
-                ? "Undergraduate"
-                : course.level === "pg"
-                ? "Postgraduate"
-                : "Other"}
-            </span>
+    <div className="teaching-table-wrapper">
+      <table className="teaching-table">
+        <thead>
+          <tr>
+            <th>Course</th>
+            <th>Level</th>
+            <th>Semester</th>
+          </tr>
+        </thead>
 
-            {course.semester && (
-              <span className="teaching-semester">
-                {course.semester}
-              </span>
-            )}
-          </div>
+        <tbody>
+          {teachingCourses.map((course) => (
+            <tr key={course.id}>
+              <td className="teaching-course-title">
+                {course.title}
+              </td>
 
-          <h3>{course.title}</h3>
+              <td>
+                <span className="teaching-level">
+                  {course.level === "ug"
+                    ? "Undergraduate"
+                    : course.level === "pg"
+                    ? "Postgraduate"
+                    : "Other"}
+                </span>
+              </td>
 
-          {course.description && (
-            <p>{course.description}</p>
-          )}
-        </div>
-      ))}
+              <td>
+                {course.semester || "—"}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   ) : (
     <p className="section-text">
