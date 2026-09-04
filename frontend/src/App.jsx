@@ -641,91 +641,100 @@ function App() {
 </section>
 
         {/* RESOURCES */}
-        <section
-          className="section soft-section"
-          id="resources"
-        >
-          <p className="section-label">
-            Resources
-          </p>
+<section
+  className="section soft-section"
+  id="resources"
+>
+  <p className="section-label">
+    Resources
+  </p>
 
-          <h2 className="section-title">
-            Academic Resources
-          </h2>
+  <h2 className="section-title">
+    Academic Resources
+  </h2>
 
-          {resources.length > 0 ? (
-            <div className="resource-grid">
-              {resources.map((resource) => (
-                <div
-                  className="resource-card"
-                  key={resource.id}
-                >
-                  <div className="resource-meta">
-                    <span className="resource-category">
-                      {resource.category === "notes"
-                        ? "Lecture Notes"
-                        : resource.category === "slides"
-                        ? "Presentation"
-                        : resource.category === "question"
-                        ? "Question Bank"
-                        : resource.category === "practical"
-                        ? "Practical"
-                        : "Other"}
-                    </span>
-                  </div>
+  {resources.length > 0 ? (
+    <div className="resource-table-wrapper">
+      <table className="resource-table">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Resource Title</th>
+            <th>Course</th>
+            <th>Semester</th>
+            <th>Access</th>
+          </tr>
+        </thead>
 
-                  <h3>{resource.title}</h3>
+        <tbody>
+          {resources.map((resource) => (
+            <tr key={resource.id}>
+              <td>
+                <span className="resource-category">
+                  {resource.category === "notes"
+                    ? "Lecture Notes"
+                    : resource.category === "slides"
+                    ? "Presentation"
+                    : resource.category === "question"
+                    ? "Question Bank"
+                    : resource.category === "practical"
+                    ? "Practical"
+                    : "Other"}
+                </span>
+              </td>
 
-                  {resource.course && (
-                    <p>
-                      <strong>Course:</strong>{" "}
-                      {resource.course}
-                    </p>
+              <td className="resource-title-cell">
+                <strong>{resource.title}</strong>
+
+                {resource.description && (
+                  <span className="resource-table-description">
+                    {resource.description}
+                  </span>
+                )}
+              </td>
+
+              <td>
+                {resource.course || "—"}
+              </td>
+
+              <td>
+                {resource.semester || "—"}
+              </td>
+
+              <td>
+                <div className="resource-table-links">
+                  {resource.file && (
+                    <a
+                      href={resource.file}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      View / Download
+                    </a>
                   )}
 
-                  {resource.semester && (
-                    <p>
-                      <strong>Semester:</strong>{" "}
-                      {resource.semester}
-                    </p>
+                  {resource.external_url && (
+                    <a
+                      href={resource.external_url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      External Link
+                    </a>
                   )}
-
-                  {resource.description && (
-                    <p className="resource-description">
-                      {resource.description}
-                    </p>
-                  )}
-
-                  <div className="resource-links">
-                    {resource.file && (
-                      <a
-                        href={resource.file}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        View / Download
-                      </a>
-                    )}
-
-                    {resource.external_url && (
-                      <a
-                        href={resource.external_url}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        External Link
-                      </a>
-                    )}
-                  </div>
                 </div>
-              ))}
-            </div>
-          ) : (
-            <p className="section-text">
-              Academic resources will be added here.
-            </p>
-          )}
-        </section>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  ) : (
+    <p className="section-text">
+      Academic resources will be added here.
+    </p>
+  )}
+</section>
           {/* ACHIEVEMENTS */}
 <section
   className="section"
